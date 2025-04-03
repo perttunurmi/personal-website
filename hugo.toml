@@ -1,7 +1,6 @@
-baseURL = 'https://example.org/'
-languageCode = 'fi'
+baseURL = 'https://perttunurmi.github.io/personal-website/'
+languageCode = 'en-us'
 title = 'Perttu Nurmi'
-# theme = "personal"
 theme = "hyde"
 
 [Menus]
@@ -10,3 +9,5 @@ theme = "hyde"
       {Name = "LinkedIn", URL = "https://www.linkedin.com/in/perttunurmi/"}
   ]
 
+[params]
+  description = "Just another poorly thought-out tech blog"
