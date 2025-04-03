@@ -10,4 +10,4 @@ theme = "hyde"
   ]
 
 [params]
-  description = "Just another poorly thought-out tech blog"
+  description = "Just another poorly thought-out blog"
