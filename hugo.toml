@@ -1,0 +1,12 @@
+baseURL = 'https://example.org/'
+languageCode = 'fi'
+title = 'Perttu Nurmi'
+# theme = "personal"
+theme = "hyde"
+
+[Menus]
+  main = [
+      {Name = "Github", URL = "https://github.com/perttunurmi/"},
+      {Name = "LinkedIn", URL = "https://www.linkedin.com/in/perttunurmi/"}
+  ]
+
