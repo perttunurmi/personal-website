@@ -1,0 +1,112 @@
+@keyframes fadeinall {
+    0% {
+        opacity: 1;
+    }
+
+    97% {
+        opacity: 0;
+    }
+
+    98% {
+        opacity: 0;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+        z-index: -1;
+    }
+}
+
+#fadein {
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    background-color: #202020;
+    z-index: 999;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation: fadeinall 1s normal both;
+    animation: fadeinall 1s normal both;
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+html,
+body {
+    background-color: #202020;
+    color: #ffffff;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.center {
+    margin: auto;
+    min-height: 100vh;
+    display: grid;
+    grid-auto-rows: min-content;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.profile-picture {
+    border-radius: 25px;
+    border: 2px solid #000000;
+    filter: blur(0.5px);
+    transition: 5s ease;
+}
+
+.profile-picture:hover {
+    cursor: not-allowed;
+    transition: 1s ease;
+    filter: blur(0.5px) drop-shadow(0 0 15px #8b0000);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-style: normal;
+    font-family: "Metal Mania";
+    text-shadow: 3px 3px 3px #8b0000;
+    font-weight: 400;
+}
+
+#links ul {
+    list-style: none;
+    padding: 0;
+}
+
+#links ul li,
+#links ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem;
+    transition: 1s ease;
+}
+
+#links ul li:hover,
+#links ul li a:hover {
+    transform: rotate(5deg);
+    color: #757575;
+    text-shadow: 5px 0px 5px #8b0000;
+    transition: 1s linear;
+    filter: blur(1px);
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
