@@ -112,4 +112,6 @@ footer {
 
 canvas {
     position: relative;
+    border: black 2px solid;
+    margin: 1em;
 }
