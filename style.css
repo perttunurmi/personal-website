@@ -17,7 +17,6 @@
         opacity: 0;
         -webkit-transform: translateY(-100%);
         transform: translateY(-100%);
-        z-index: -1;
     }
 }
 
@@ -107,6 +106,10 @@ h1 {
 }
 
 footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
+}
+
+canvas {
+    position: relative;
 }
