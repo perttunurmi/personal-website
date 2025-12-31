@@ -14,8 +14,8 @@ const FPS = 60
 let spinAngle = 0
 let moveZ = 1
 
-canvas.width = 400
-canvas.height = 400
+canvas.width = 800
+canvas.height = 800
 
 const vertices = [
     { x: 0.25, y: 0.25, z: -0.25 },

@@ -74,11 +74,12 @@ body {
 main {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 h1 {
     font-style: normal;
-    font-family: "Metal Mania";
+    font-family: 'Metal Mania';
     text-shadow: 3px 3px 3px #8b0000;
     font-weight: 400;
 }
@@ -111,7 +112,8 @@ footer {
 }
 
 canvas {
-    position: relative;
     border: black 2px solid;
-    margin: 1em;
+    margin: 5%;
+    aspect-ratio: 1/1;
+    max-width: 95%;
 }
