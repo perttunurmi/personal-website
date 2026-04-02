@@ -1,3 +1,14 @@
+const keybinds = [
+    { key: '?', desc: 'Press ? to toggle help' },
+    { key: 'r', desc: 'Press r to toggle spinning' },
+    { key: 'c', desc: 'Press c to rotate colors' },
+    { key: 'm', desc: 'Press m to toggle mouse control' },
+    // { key: 'p', desc: 'Press p to play a game' },
+]
+
+const colors = ['#00AA00', '#AA0000', '#0000AA']
+
+// Fade in
 window.onload = () => {
     setTimeout(() => {
         document.getElementById('fadein').remove()
@@ -9,10 +20,13 @@ const ctx = canvas.getContext('2d')
 // Globals
 let spinning = true
 let showHelp = false
+let mouseUpdate = false
 
 const FPS = 60
 let spinAngle = 0
 let moveZ = 1
+
+let colorIndex = 0
 
 canvas.width = 800
 canvas.height = 800
@@ -44,8 +58,10 @@ const mousePosition = {
 }
 
 function updateDisplay(event) {
-    mousePosition.x = 2 * (event.pageX / window.innerWidth) - 1
-    mousePosition.y = 2 * (event.pageY / window.innerHeight) - 1
+    if (mouseUpdate) {
+        mousePosition.x = 2 * (event.pageX / window.innerWidth) - 1
+        mousePosition.y = 2 * (event.pageY / window.innerHeight) - 1
+    }
 }
 
 // Event handlers
@@ -57,15 +73,18 @@ document.addEventListener('keydown', (event) => {
 
     if (key === '?') showHelp = !showHelp
     if (key === 'r') spinning = !spinning
+    if (key === 'm') mouseUpdate = !mouseUpdate
+    if (key === 'c') colorIndex = (colorIndex + 1) % 3
 })
 
 canvas.addEventListener('wheel', (event) => {
+    event.preventDefault()
     moveZ += event.deltaY / 1000
 })
 
 function drawPoint(p) {
     const size = 20
-    ctx.fillStyle = '#00AA00'
+    ctx.fillStyle = colors[colorIndex]
     ctx.fillRect(p.x - size / 2, p.y - size / 2, size, size)
 }
 
@@ -102,11 +121,20 @@ function translateZ({ x, y, z }, dz) {
 
 function drawline(p1, p2) {
     ctx.lineWidth = 5
-    ctx.strokeStyle = '#00AA00'
+    ctx.strokeStyle = colors[colorIndex]
     ctx.beginPath()
     ctx.moveTo(p1.x, p1.y)
     ctx.lineTo(p2.x, p2.y)
     ctx.stroke()
+}
+
+function drawHelp() {
+    ctx.fillStyle = '#ffff00'
+    ctx.font = '24px monospace'
+
+    keybinds.forEach((keybind, index) => {
+        ctx.fillText(keybind.desc, 10, (index + 1) * 24)
+    })
 }
 
 function frame() {
@@ -119,10 +147,10 @@ function frame() {
     const angY = Math.PI * mousePosition.x
     const angX = Math.PI * mousePosition.y
 
-    // for (const vertex of vertices) {
-    //     const v = rotationX(angX, rotationY(angY, vertex))
-    //     drawPoint(projectToScreen(translateZ(rotationY(spinAngle, v), moveZ)))
-    // }
+    for (const vertex of vertices) {
+        const v = rotationX(angX, rotationY(angY, vertex))
+        drawPoint(projectToScreen(translateZ(rotationY(spinAngle, v), moveZ)))
+    }
 
     faces.forEach((face) => {
         for (let i = 0; i < face.length; i++) {
@@ -138,6 +166,15 @@ function frame() {
             )
         }
     })
+
+    if (showHelp) {
+        drawHelp()
+    } else {
+        ctx.fillStyle = '#ffffff'
+        ctx.font = '24px monospace'
+        ctx.fillText('Press ? for help', 10, 24)
+    }
+
     setTimeout(frame, 1000 / FPS)
 }
 
