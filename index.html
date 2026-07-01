@@ -19,17 +19,24 @@
     <meta name="twitter:title" content="" />
     <meta name="twitter:description" content="" />
     <meta name="twitter:image" content="" />
-    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="manifest" href="manifest.json" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap"
       rel="stylesheet"
     />
-    <script src="app.js" async></script>
+    <script src="app.js" defer></script>
   </head>
   <body>
     <div id="fadein"></div>
+    <script>
+      window.onload = () => {
+        setTimeout(() => {
+          document.getElementById("fadein").remove()
+        }, 3000)
+      }
+    </script>
 
     <div class="center">
       <header>

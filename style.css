@@ -34,8 +34,8 @@
     z-index: 999;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
-    -webkit-animation: fadeinall 1s normal both;
-    animation: fadeinall 1s normal both;
+    -webkit-animation: fadeinall 2s normal both;
+    animation: fadeinall 2s normal both;
     -webkit-animation-delay: 0.3s;
     animation-delay: 0.3s;
 }
@@ -56,19 +56,6 @@ body {
     justify-content: center;
     align-content: center;
     text-align: center;
-}
-
-.profile-picture {
-    border-radius: 25px;
-    border: 2px solid #000000;
-    filter: blur(0.5px);
-    transition: 5s ease;
-}
-
-.profile-picture:hover {
-    cursor: not-allowed;
-    transition: 1s ease;
-    filter: blur(0.5px) drop-shadow(0 0 15px #8b0000);
 }
 
 main {
