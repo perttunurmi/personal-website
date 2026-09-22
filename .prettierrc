@@ -19,6 +19,7 @@
         {
             "files": "*.css",
             "options": {
+                "tabWidth": 4,
                 "singleQuote": false
             }
         },
@@ -33,7 +34,7 @@
         {
             "files": "*.json",
             "options": {
-                "tabWidth": 2,
+                "tabWidth": 4,
                 "singleQuote": false
             }
         }
